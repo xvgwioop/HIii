@@ -158,44 +158,48 @@
     {
       username: 'kantamxs',
       password: '2606',
-      background: 'https://i.postimg.cc/7Pjzx1M8/1-Clearnote.jpg',  // ใส่ลิงก์ภาพพื้นหลังของ kantamxs
+      background: 'https://i.postimg.cc/7Pjzx1M8/1-Clearnote.jpg',
       image: 'https://i.postimg.cc/7ZJMV3h5/IMG-20241106-193518-819.jpg',
       greeting: 'Hi na hub JuneNae~ Kantamxs! 🌸'
     }
-    // เพิ่มผู้ใช้เพิ่มเติมได้ในรูปแบบเดียวกัน
   ];
 
   function login() {
     const usernameInput = document.getElementById('username').value.trim().toLowerCase();
     const passwordInput = document.getElementById('password').value.trim();
 
-    // ค้นหาผู้ใช้จากรายการ
     const user = users.find(u => u.username.toLowerCase() === usernameInput && u.password === passwordInput);
 
     if (user) {
-  // ซ่อนฟอร์มล็อกอิน
-  document.getElementById('loginForm').classList.add('hidden');
+      // ซ่อนฟอร์มล็อกอิน
+      document.getElementById('loginForm').classList.add('hidden');
 
-  // แสดงกล่องรูป
-  const imageBox = document.getElementById('imageBox');
-  imageBox.classList.remove('hidden');
+      // แสดงกล่องรูป
+      const imageBox = document.getElementById('imageBox');
+      imageBox.classList.remove('hidden');
 
-  // เปลี่ยนพื้นหลังตามบัญชี
-  const body = document.getElementById('pageBody');
-  body.style.backgroundImage = `url('${user.background}')`;
-  body.style.backgroundRepeat = "no-repeat";
-  body.style.backgroundSize = "cover";
-  body.style.backgroundPosition = "center";
+      // เปลี่ยนพื้นหลังตามบัญชี
+      const body = document.getElementById('pageBody');
+      body.style.backgroundImage = `url('${user.background}')`;
+      body.style.backgroundRepeat = "no-repeat";
+      body.style.backgroundSize = "cover";
+      body.style.backgroundPosition = "center";
 
-  // เปลี่ยนข้อความต้อนรับ
-  imageBox.querySelector('h2').textContent = user.greeting;
-  imageBox.querySelector('img').src = user.image;
+      // เปลี่ยนข้อความต้อนรับ
+      imageBox.querySelector('h2').textContent = user.greeting;
+      imageBox.querySelector('img').src = user.image;
 
-  // ✅ ซ่อนกล่องมุมขวาล่าง
-  console.log("ซ่อนกล่องมุมขวาล่าง");
-  document.getElementById('bottomRightBox').classList.add('hidden-bottom');
+      // ✅ ซ่อนกล่องมุมขวาล่าง
+      console.log("ซ่อนกล่องมุมขวาล่าง");
+      document.getElementById('bottomRightBox').classList.add('hidden-bottom');
 
-} else {
-  // แสดงกล่องแจ้งเตือน
-  document.getElementById('errorBox').classList.remove('hidden');
-}
+    } else {
+      // แสดงกล่องแจ้งเตือน
+      document.getElementById('errorBox').classList.remove('hidden');
+    }
+  }
+
+  function closeError() {
+    document.getElementById('errorBox').classList.add('hidden');
+  }
+</script>
